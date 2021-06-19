@@ -1,0 +1,8 @@
+li a:hover{
+    cursor: pointer;
+}
+ 
+nav{
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Stint Ultra Condensed', cursive;
+}

@@ -1,0 +1,32 @@
+<div
+  class="container"
+  *ngIf="categoryListModel != null && categoryListModel.length > 0"
+>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Adı</th>
+        <th>Eklenme Tarihi</th>
+        <th>Açıklama</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categoryListModel; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ category.name }}</td>
+        <td>{{ category.createdOn | date: "short" }}</td>
+        <td>{{ category.description }}</td>
+        <td>
+          <a [routerLink]="['/admin/category-update',category.id]">
+            <i class="fas fa-edit"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="p-3 mx-2 my-4 alert alert-primary" *ngIf="categoryListModel!=null && categoryListModel.length<=0">
+  <p class="text-center lead">Henüz Eklenmiş Kategori Bulunamadı!</p>
+</div>

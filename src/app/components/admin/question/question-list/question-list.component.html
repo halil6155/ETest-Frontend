@@ -1,0 +1,35 @@
+<div
+  class="container"
+  *ngIf="questionListModel != null && questionListModel.length > 0"
+>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Soru</th>
+        <th>Seçenek A</th>
+        <th>Seçenek B</th>
+        <th>Seçenek C</th>
+        <th>Seçenek D</th>
+        <th>Yanıt</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questionListModel; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ question.text }}</td>
+        <td>{{ question.optionA }}</td>
+        <td>{{ question.optionB }}</td>
+        <td>{{ question.optionC }}</td>
+        <td>{{ question.optionD }}</td>
+        <td>{{ question.answer }}</td>
+        <td>
+          <a [routerLink]="['/admin/question-update',question.id]">
+            <i class="fas fa-edit"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

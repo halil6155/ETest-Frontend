@@ -1,0 +1,110 @@
+<div class="container">
+  <form [formGroup]="questionAddFormGroup" (ngSubmit)="add()" >
+    <div class="mb-3">
+      <label class="form-label">Soru</label>
+      <textarea class="form-control" formControlName="text" rows="3"></textarea>
+      <span *ngIf="
+          getControls.text.invalid &&
+          getControls.text.touched"
+      >
+        <small class="text-danger">
+          {{ validationService.getValidation(getControls.text, "Soru") }}
+        </small>
+      </span>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Kategori</label>
+      <select (change)="changeCategory($event.target.value)" class="form-control">
+       <option value="-1">Kategori Seçimi Yapınız</option>
+        <option *ngFor="let category of categoryListModel" value="{{category.id}}">{{category.name}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">A Şıkkı</label>
+      <input type="text" class="form-control" formControlName="optionA" />
+      <span
+        *ngIf="
+          getControls.optionA.invalid &&
+          getControls.optionA.touched 
+        "
+      >
+        <small class="text-danger">
+          {{
+            validationService.getValidation(getControls.optionA, "Seçenek A")
+          }}
+        </small>
+      </span>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">B Şıkkı</label>
+      <input type="text" class="form-control" formControlName="optionB" />
+      <span
+        *ngIf="
+          getControls.optionB.invalid &&
+          getControls.optionB.touched
+        "
+      >
+        <small class="text-danger">
+          {{
+            validationService.getValidation(getControls.optionB, "Seçenek B")
+          }}
+        </small>
+      </span>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">C Şıkkı</label>
+      <input type="text" class="form-control" formControlName="optionC" />
+      <span
+        *ngIf="
+          getControls.optionC.invalid &&
+          getControls.optionC.touched
+        "
+      >
+        <small class="text-danger">
+          {{
+            validationService.getValidation(getControls.optionC, "Seçenek C")
+          }}
+        </small>
+      </span>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">D Şıkkı</label>
+      <input type="text" class="form-control" formControlName="optionD" />
+      <span
+        *ngIf="
+          getControls.optionD.invalid &&
+          getControls.optionD.touched
+        "
+      >
+        <small class="text-danger">
+          {{
+            validationService.getValidation(getControls.optionD, "Seçenek D")
+          }}
+        </small>
+      </span>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Yanıt</label>
+      <input type="text" class="form-control" formControlName="answer" />
+      <span
+        *ngIf="
+          getControls.answer.invalid &&
+          getControls.answer.touched
+        "
+      >
+        <small class="text-danger">
+          {{ validationService.getValidation(getControls.answer, "Yanıt") }}
+        </small>
+      </span>
+    </div>
+    <div class="mb-3">
+      <button
+        type="submit"
+        [disabled]="questionAddFormGroup.invalid"
+        class="btn btn-success w-100"
+      >
+        Kaydet
+      </button>
+    </div>
+  </form>
+</div>

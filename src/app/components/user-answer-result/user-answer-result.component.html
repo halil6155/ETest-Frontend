@@ -1,0 +1,20 @@
+<div class="container p-5">
+    <table class="table table-striped">
+        <thead>
+            <th>#</th>
+            <th>Kategori</th>
+            <th>Toplam Soru</th>
+            <th>Doğru</th>
+            <th>Yanlış</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let userAnswerResult of userAnswerListResultModel;let i=index">
+                <td>{{i+1}}</td>
+                <td>{{userAnswerResult.categoryName}}</td>
+                <td>{{userAnswerResult.totalQuestion}}</td>
+                <td>{{userAnswerResult.correctNumber}}</td>
+                <td>{{userAnswerResult.wrongNumber}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

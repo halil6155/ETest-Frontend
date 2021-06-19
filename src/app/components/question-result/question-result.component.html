@@ -1,0 +1,11 @@
+<div class="container mt-2">
+    <div class="alert" [ngClass]="i%2==0 ? 'alert-success':'alert-primary'" *ngFor="let result of userMainResultListModel;let i=index">
+        <p><strong>{{result.categoryName}}</strong></p>
+        <p>Toplam Soru : {{result.totalQuestion}}</p>
+        <p>Doğru : {{result.correctNumber}} | Yanlış :{{result.wrongNumber}}</p>
+    </div>
+</div>
+
+<div *ngIf="userMainResultListModel!=null && userMainResultListModel.length <=0" class="mt-5 alert alert-info">
+   <p class="text-center">Henüz Cevaplanmış Sorular Bulunamadı.Sonuçlar Yüklenemedi!</p>
+</div>

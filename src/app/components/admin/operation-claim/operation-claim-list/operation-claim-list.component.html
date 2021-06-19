@@ -1,0 +1,22 @@
+<div class="container p-5">
+  <table class="table table-striped" *ngIf="operationClaimListModel != null">
+    <thead>
+      <th>#</th>
+      <th>Rol</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let operationClaim of operationClaimListModel; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ operationClaim.name }}</td>
+        <td>
+          <a
+            [routerLink]="['/admin/operation-claim-update', operationClaim.id]"
+          >
+            <i class="fas fa-edit"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

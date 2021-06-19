@@ -1,0 +1,33 @@
+<div class="container p-4">
+<table class="table table-hover text-center" *ngIf="userListModel!=null">
+    <thead>
+        <th>#</th>
+        <th>İsim</th>
+        <th>Soyisim</th>
+        <th>Kullanıcı Adı</th>
+        <th>Email</th>
+        <th>Doğum Tar.</th>
+        <th>Kayıt Tar.</th>
+        <th>Durum</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userListModel;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.dateOfBirth | date:'short'}}</td>
+            <td>{{user.createdOn | date:'short'}}</td>
+            <td>
+                {{user.isActive}}
+            </td>
+            <td>
+                <a [routerLink]="['/admin/user-operation-claim-list',user.id]">
+                    <i class="fas fa-user-tag"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table></div>

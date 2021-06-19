@@ -1,0 +1,23 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="alert alert-info">
+        <p class="lead">{{ userOperationClaimModel[0].userName }}</p>
+        <p class="text-muted">Yetki Atama|Kaldırma</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div
+        class="row"
+        *ngFor="let userOperaionClaim of userOperationClaimModel; let i = index"
+      >
+        <input type="hidden"  />
+        <label>{{ userOperaionClaim.operationClaimName }}</label>
+        <input type="checkbox" [(ngModel)]="userOperationClaimModel[i].isCheck" [checked]="userOperaionClaim.isCheck" />
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <button class="btn btn-success w-100" (click)="update()">Güncelle</button>
+  </div>
+</div>

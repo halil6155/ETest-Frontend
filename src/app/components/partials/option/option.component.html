@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row my-3">
+    <select
+      (change)="changeCategory($event.target.value)"
+      id="category"
+      class="form-control form-control-lg"
+    >
+      <option value="-1">Bir Kategori Belirleyiniz...</option>
+      <option
+        *ngFor="let category of categoryListModel"
+        value="{{ category.id }}"
+      >
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <div class="row" *ngIf="userAnswerResultModel != null">
+      <div class="alert alert-success">
+        <p>
+          Tebrikler Bütün Soruları Çözdünüz!Sorular Eklendikçe Yeni Soruları
+          Çözebilirsiniz...
+        </p>
+      </div>
+    </div>
+    <div class="row" *ngIf="userAnswerResultModel != null">
+      <div class="alert alert-primary">
+        Genel Durum <br />
+        Cevaplanan : {{ userAnswerResultModel.totalQuestion }} | Doğru :
+        {{ userAnswerResultModel.correctNumber }} | Yanlış :
+        {{ userAnswerResultModel.wrongNumber }}
+      </div>
+    </div>
+    <div *ngIf="questionSingleModel != null">
+      <div class="row">
+        <div class="col-md-12 mb-5 mt-2 text-center">
+          <strong>{{ questionSingleModel.text }}</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div id="question" class="p-3">
+          <p class="m-1">
+            <input
+              (click)="changeAnswer($event.target.id)"
+              type="radio"
+              id="A"
+              name="radio-group"
+            />
+            <label for="A">{{ questionSingleModel.optionA }}</label>
+          </p>
+        </div>
+        <div id="question" class="p-3">
+          <p class="m-1">
+            <input
+              (click)="changeAnswer($event.target.id)"
+              type="radio"
+              id="B"
+              name="radio-group"
+            />
+            <label for="B">{{ questionSingleModel.optionB }}</label>
+          </p>
+        </div>
+        <div id="question" class="p-3">
+          <p class="m-1">
+            <input
+              (click)="changeAnswer($event.target.id)"
+              type="radio"
+              id="C"
+              name="radio-group"
+            />
+            <label for="C">{{ questionSingleModel.optionC }}</label>
+          </p>
+        </div>
+        <div id="question" class="p-3">
+          <p class="m-1">
+            <input
+              (click)="changeAnswer($event.target.id)"
+              type="radio"
+              id="D"
+              name="radio-group"
+            />
+            <label for="D">{{ questionSingleModel.optionD }}</label>
+          </p>
+        </div>
+        <div class="p-3">
+          <button (click)="sendAnswer()" class="btn btn-success w-100">
+            Yanıtla
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
